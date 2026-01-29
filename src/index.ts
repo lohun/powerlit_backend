@@ -32,7 +32,6 @@ interface ClientData {
 }
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY!;
-console.log(GEMINI_API_KEY)
 
 
 
@@ -72,7 +71,7 @@ app.post("/make_recommendation", async (req: Request, res: Response) => {
   
   The JSON structure must be exactly:
   {
-  "summary": "A 2-3 sentence overview of the recommended power solution",
+  "summary": "An insightful 2-3 sentence teaser/snippet of the recommendation. It must be valuable enough to engage the user but concise enough to act as a preview, encouraging them to unlock the full details.",
   "reasoning": "A detailed 100-150 word explanation of why this solution is ideal for the client's needs, considering their location, load requirements, and property type",
   "primarySolution": "Solar+Battery" or "Hybrid" or "Generator+Inverter",
   "systemCapacityKW": <number - the total system capacity>,
@@ -175,11 +174,6 @@ app.post("/make_recommendation", async (req: Request, res: Response) => {
 
 });
 
-app.listen(port, ()=> {
+app.listen(port, () => {
     console.log("Express server running on " + port);
 })
-
-
-
-
-
